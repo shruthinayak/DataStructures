@@ -8,6 +8,10 @@ public class Node {
 		data = d;
 	}
 
+	public Node() {
+
+	}
+
 	Node appendToTail(int d) {
 		Node end = new Node(d);
 		Node n = this;
@@ -18,12 +22,24 @@ public class Node {
 		return end;
 	}
 
-	void deleteFromList(Node head, int d) {
+	Node deleteFromList(Node head, int d) {
 		Node pointer = head;
-		while (pointer.next != null && pointer.next.data != (d)) {
-			pointer = pointer.next;
+		
+		while (pointer != null) {
+
+			if (pointer.data != d) {
+				pointer = pointer.next;
+				continue;
+			} else{
+				if(pointer==head){
+					head = head.next;
+					pointer = pointer.next;
+				}
+				else pointer = pointer.next.next;
+			}
+				
 		}
-		pointer.next = pointer.next.next;
+		return head;
 	}
 
 	void printList(Node head) {
@@ -213,20 +229,20 @@ public class Node {
 		return one.data;
 
 	}
-	
+
 	Node RemoveDuplicates(Node head) {
-		  Node prev = head;
-		  Node nex = head;
-		    while(nex!=null){
-		        if(nex.data == prev.data){
-		            nex = nex.next;
-		            prev.next = null;
-		        } else{
-		            prev.next = nex;
-		            prev = prev.next;
-		        }
-		    }
-		    return head;
+		Node prev = head;
+		Node nex = head;
+		while (nex != null) {
+			if (nex.data == prev.data) {
+				nex = nex.next;
+				prev.next = null;
+			} else {
+				prev.next = nex;
+				prev = prev.next;
+			}
 		}
+		return head;
+	}
 
 }

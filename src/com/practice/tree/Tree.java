@@ -200,7 +200,7 @@ public class Tree {
 		}
 
 	}
-
+	
 	static Node Insert(Node root, int value) {
 		Node n = new Node();
 		n.data = value;

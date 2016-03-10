@@ -1,26 +1,46 @@
 package com.practice.list;
 
-import java.util.HashMap;
 
 //forward case addition of linked list
 //partition on x
 
 public class Main {
-	static int[] data = { 2, 3, 6, 8, 11, 8, 6, 3, 5, 1 };
+	static int[] data = { 2, 2, 2, 3, 2, 12, 4, 6, 2, 2, 3};
 	static Node head = linkedListDemo(data);
 
 	public static void main(String[] args) {
 		// addLinkedLists();
 		// initiateDelete(3);
-		// detectLoopStartPoint(head);
-		reverseLinkedList(head);
+		 detectLoopStartPoint(head);
+		 //reverseLinkedList(head);
 		// listPalindrome(linkedListDemo(a));
-		
-		
-
+		//traverseRecursive(head);
+		//findMiddleNode(head.next.next, head);
+		head.printList(head);
+		Node temp = head.deleteFromList(head, 2);
+		head.printList(temp);
 	}
 	
+	private static void findMiddleNode(Node fast, Node slow){
+		if(fast.next==null){
+			slow = slow.next;
+			System.out.println(slow.data);
+			return;
+		}
+		else{
+			fast=fast.next.next;
+			slow=slow.next;
+			findMiddleNode(fast, slow);
+		}
+	}
 	
+	private static void traverseRecursive(Node head){
+		if(head==null){
+			return;
+		}
+		System.out.print(head.data+",");
+		traverseRecursive(head.next);
+	}
 	
 	public static void kthElementFromEnd(Node head, int k) {
 		Node node = head;
@@ -47,14 +67,14 @@ public class Main {
 	}
 
 	private static Node result;
-
+	
 	static Node linkedListDemo(int[] a) {
-		Node head = new Node(1);
+		Node head = new Node();
 		for (int d : a) {
 			head.appendToTail(d);
 		}
-		head.printList(head);
-		return head;
+		//head.next.printList(head);
+		return head.next;
 	}
 
 	private static int add(Node h, Node j) {
@@ -89,10 +109,11 @@ public class Main {
 		}
 		System.out.println("Detected a loop: Merge point at " + p.data);
 		p = head;
-		while (p != q) {
+		while (p.next != q) {
 			p = p.next;
 			q = q.next.next;
 		}
+		p.next = null;
 		System.out.println("Beginning of the loop is " + p.data);
 	}
 
@@ -144,4 +165,5 @@ public class Main {
 		}
 		System.out.println("Yayy! A palindrome.");
 	}
+	
 }

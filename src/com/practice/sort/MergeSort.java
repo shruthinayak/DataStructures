@@ -51,9 +51,14 @@ public class MergeSort {
             k++;
             i++;
         }
+        while (j <= middle) {
+            array[k] = tempMergArr[j];
+            k++;
+            j++;
+        }
 
     }
-    /*public static void mergeSort(int[] a, int s, int e) {
+    public static void mergeSort(int[] a, int s, int e) {
 
         if (s <= e) {
             int mid = (s + e) / 2;
@@ -94,5 +99,5 @@ public class MergeSort {
         }
         System.out.println(Arrays.toString(b));
         return b;
-    }*/
+    }
 }
