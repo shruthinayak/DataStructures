@@ -1,24 +1,42 @@
 package com.practice.list;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+
 
 //forward case addition of linked list
 //partition on x
 
 public class Main {
-	static int[] data = { 2, 2, 2, 3, 2, 12, 4, 6, 2, 2, 3};
+//	static int[] data = { 2, 2, 2, 3, 2, 12, 4, 6, 2, 2, 3};
+	static int[] data = {1, 8, 6, 3, 2, 12, 4, 5, 7, 9};
 	static Node head = linkedListDemo(data);
 
 	public static void main(String[] args) {
+		DNode head1 = null;
+		for(int i: data){
+			head1 = DNode.SortedInsert(head1, i);
+		}
+		
+		DNode.print(head1);
+		int[] arr = {3,1,2,6,5,12};
 		// addLinkedLists();
 		// initiateDelete(3);
-		 detectLoopStartPoint(head);
+//		 detectLoopStartPoint(head);
 		 //reverseLinkedList(head);
 		// listPalindrome(linkedListDemo(a));
 		//traverseRecursive(head);
 		//findMiddleNode(head.next.next, head);
-		head.printList(head);
-		Node temp = head.deleteFromList(head, 2);
-		head.printList(temp);
+//		head.printList(head);
+//		Node temp = head.deleteFromList(head, 2);
+//		head.printList(temp);
+	}
+	private static int numberOfComponents(int[] arr, Node head){
+		int conn=0;
+		
+		return conn;
 	}
 	
 	private static void findMiddleNode(Node fast, Node slow){
@@ -38,7 +56,7 @@ public class Main {
 		if(head==null){
 			return;
 		}
-		System.out.print(head.data+",");
+		System.out.print(head.data+", ");
 		traverseRecursive(head.next);
 	}
 	

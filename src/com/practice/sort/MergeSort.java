@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Created by shruthi on 29/11/15.
  */
 public class MergeSort {
-    static int[] array = CommonData.unsorted;
+    static int[] array = CommonData.getUnsortedArray(20);
     static int[] tempMergArr = new int[array.length];
     public static void main(String[] args){
         System.out.println(Arrays.toString(array));
@@ -51,7 +51,7 @@ public class MergeSort {
             k++;
             i++;
         }
-        while (j <= middle) {
+        while (j <= higherIndex) {
             array[k] = tempMergArr[j];
             k++;
             j++;
