@@ -1,6 +1,6 @@
 package com.practice.tree;
 
-import com.practice.graphs.GraphNode;
+import com.practice.graphs.Vertex;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -159,18 +159,6 @@ public class Tree {
         System.out.println(root.data);
     }
 
-    public static GraphNode construction(int[] a, int start, int end) {
-
-        int mid = (start + end) / 2;
-        GraphNode root = null;
-        if (start >= end) {
-            return null;
-        }
-        root = new GraphNode(a[mid]);
-        root.connect(construction(a, start, mid));
-        root.connect(construction(a, mid + 1, end));
-        return root;
-    }
 
     public static Node constructionNormal(int[] a, int start, int end) {
         int mid = (start + end) / 2;
