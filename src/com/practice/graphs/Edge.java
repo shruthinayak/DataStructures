@@ -4,8 +4,9 @@ package com.practice.graphs;
  * Created by shruthi on 2/4/16.
  */
 public class Edge {
-    private Vertex to;
-    private Vertex from;
+    Vertex to;
+    Vertex from;
+    int weight;
 
     public Edge(Vertex u, Vertex v) {
         this.from = u;

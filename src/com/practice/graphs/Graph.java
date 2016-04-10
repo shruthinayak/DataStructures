@@ -16,29 +16,6 @@ public class Graph {
             verts.add(i, new Vertex(i));
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Graph g = createGraph(new Scanner(new File("src/com/practice/graphs/edges.txt")));
-        Vertex src = g.verts.get(new Random().nextInt(g.verts.size()));
-        Stack<Vertex> s = new Stack<>();
-        Stack<Vertex> output = new Stack<>();
-        DFS(src, s, output);
-        Collections.reverse(output);
-        System.out.println();
-        System.out.println("Starting Vertex: "+src.data);
-        System.out.println("DFS Order: ");
-        for (Vertex x : output) {
-            System.out.print(x.data+", ");
-            x.visited = false;
-        }
-        Queue<Vertex> q = new LinkedList<>();
-        q.add(src);
-        src.visited = true;
-        System.out.println();
-        System.out.println("BFS Order: ");
-        BFS(g, q);
-        System.out.println();
-    }
-
     private static void DFS(Vertex v, Stack<Vertex> s, Stack<Vertex> output) {
         s.push(v);
         v.visited = true;
@@ -57,10 +34,10 @@ public class Graph {
     }
 
     public static int BFS(Graph g, Queue<Vertex> verQueue) {
-        int count=0;
+        int count = 0;
         while (!verQueue.isEmpty()) {
             Vertex u = verQueue.remove();
-            System.out.print(u.data+", ");
+            System.out.print(u.data + ", ");
             count++;
             for (Edge e : u.links) {
                 Vertex v = e.otherEnd(u);
@@ -74,11 +51,12 @@ public class Graph {
         return 0;
     }
 
-    void addEdge(int a, int b) {
+    void addEdge(int a, int b, int weight) {
         Vertex u = verts.get(a);
         Vertex v = verts.get(b);
         Edge e = new Edge(u, v);
-        System.out.print(e.toString()+"; ");
+        e.weight = weight;
+        System.out.print(e.toString() + "; ");
         u.links.add(e);
         v.links.add(e);
         u.degree++;
@@ -89,12 +67,13 @@ public class Graph {
         int n = in.nextInt(); // number of vertices in the graph
         int m = in.nextInt(); // number of edges in the graph
         Graph g = new Graph(n);
-        System.out.println("Vertices: "+g.toString());
+        System.out.println("Vertices: " + g.toString());
         System.out.println("Edges: ");
         for (int i = 0; i < m; i++) {
             int u = in.nextInt(); // tail
             int v = in.nextInt(); // head
-            g.addEdge(u, v);
+            int w = in.nextInt(); //weight
+            g.addEdge(u, v, w);
         }
         in.close();
         return g;
@@ -103,10 +82,22 @@ public class Graph {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for(Vertex v: verts){
-            if(v.data!=0)
-                sb.append(v.data+", ");
+        for (Vertex v : verts) {
+            if (v.data != 0)
+                sb.append(v.data + ", ");
         }
         return sb.toString();
+    }
+
+    void resetParentNull() {
+        for (Vertex v : verts) {
+            v.parent = null;
+        }
+    }
+
+    void resetVisited() {
+        for (Vertex v : verts) {
+            v.visited = false;
+        }
     }
 }
