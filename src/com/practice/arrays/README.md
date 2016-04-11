@@ -1,41 +1,42 @@
-totalPaths
-	int row, int col, int gridSize, 
+###GeeksForGeeks
+#####writingComparator
+	java.util.List listToSortAlphabetically,
 
-fib
-	int n, 
+#####totalPaths
+	int row, int col, int gridSize,
 
-writingComparator
-	java.util.List listToSortAlphabetically, 
+#####fib
+	int n,
 
-isTotalPossible
-	int[] intArray, int sum, 
+#####isTotalPossible
+	int[] intArray, int sum,
 
-dotProductOfSparseVectors
-	java.lang.String[] input, 
+#####dotProductOfSparseVectors
+	java.lang.String[] input,
 
-groupByAnagrams
-	java.lang.String[] words, 
+#####groupByAnagrams
+	java.lang.String[] words,
 
-distinctPairsToK
-	int[] intArray, int kSum, 
+#####distinctPairsToK
+	int[] intArray, int kSum,
 
-largestContiguousSubArray
-	int[] a, 
+#####largestContiguousSubArray
+	int[] a,
 
-findMissingNumber
-	int[] a, 
+#####findMissingNumber
+	int[] a,
 
-subArraySum
-	int[] a, int k, 
+#####subArraySum
+	int[] a, int k,
 
-kthLargest
-	int[] array, int k, 
+#####kthLargest
+	int[] array, int k,
 
-partition
-	int p, int r, 
+#####partition
+	int p, int r,
 
-maximumProfit
-	int[] stockPrices, 
+#####maximumProfit
+	int[] stockPrices,
 
-swap
+#####swap
 	int i, int j, 

@@ -11,8 +11,9 @@ import java.lang.reflect.Parameter;
 public class Reflections {
     public static void main(String[] args) throws ClassNotFoundException {
         Method[] declaredMethods = GeeksForGeeks.class.getDeclaredMethods();
+        System.out.println("###GeeksForGeeks");
         for (Method m : declaredMethods) {
-            System.out.println(m.getName());
+            System.out.println("#####"+m.getName());
             Parameter[] parameters = m.getParameters();
             System.out.print("\t");
             for (Parameter p : parameters) {
