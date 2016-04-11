@@ -8,41 +8,59 @@ public class GeeksForGeeks {
 
     static int[] array = CommonData.array;
 
-    public static void main(String[] args) {
-        // largestContiguousSubArray(array);
-        // findMissingNumber(array);]
-        // subArraySum(array, 17);
-
-        Random rand = new Random();
-        int[] a = new int[100];
-        for (int i = 1; i < 10; i++) {
-            a[i] = 0 - rand.nextInt(100);
-            System.out.print(a[i] + " ");
+    /**
+     * Imagine a robot sitting on the upper left hand corner of an NxN grid. The robot can
+     * only move in two directions: right and down. How many possible paths are there for
+     * the robot?
+     *
+     * @param row
+     * @param col
+     * @param gridSize
+     * @return
+     */
+    static int totalPaths(int row, int col, int gridSize) {
+        if (row == gridSize && col == gridSize)
+            return 1;
+        int right = 0, down = 0;
+        if (col + 1 <= gridSize) {
+            right = totalPaths(row, col + 1, gridSize);
         }
-        distinctPairsToK(a, 25);
-        largestContiguousSubArray(a);
-
-
-        int[] b = {2, 5};
-
-        System.out.println("9 : " + isTotalPossible(b, 9));
-
-
-        List<String> list = Arrays.asList("fds", "Dfa", "ferw", "asv", "DFaw");
-        List<Integer> list1 = Arrays.asList(4, 3, 5, 7, 3, 2, 1);
-
-        Collections.sort(list1);
-        Collections.sort(list);
-        System.out.println(list1.toString());
-        System.out.println(list.toString());
-        list = Arrays.asList("fds", "Dfa", "ferw", "asv", "DFaw");
-        writingComparator(list);
-
+        if (row + 1 <= gridSize) {
+            down = totalPaths(row + 1, col, gridSize);
+        }
+        return right + down;
     }
 
+    /**
+     * Write a method to generate the nth Fibonacci number.
+     *
+     * @param n
+     * @return
+     */
+    static int fib(int n) {
+        if (n == 0)
+            return 0;
+        if (n == 1)
+            return 1;
+        int prev2 = 0;
+        int prev1 = 1;
+        int i = 2;
+        while (i != n) {
+            int result = prev2 + prev1;
+            prev2 = prev1;
+            prev1 = result;
+            i++;
+        }
+        return prev1 + prev2;
+    }
 
-    public static void writingComparator(List<String> list) {
-        System.out.println(list.toString());
+    /**
+     * Comparator
+     *
+     * @param listToSortAlphabetically
+     */
+    public static void writingComparator(List<String> listToSortAlphabetically) {
+        System.out.println(listToSortAlphabetically.toString());
         Comparator<String> sortAlphabetically = new Comparator<String>() {
 
             @Override
@@ -61,30 +79,37 @@ public class GeeksForGeeks {
             }
         };
 
-        Collections.sort(list, sortAlphabetically);
-        System.out.println(list.toString());
+        Collections.sort(listToSortAlphabetically, sortAlphabetically);
+        System.out.println(listToSortAlphabetically.toString());
     }
 
-    public static boolean isTotalPossible(int[] a, int k) {
-        // From a given integer array values, find if a Total value is possible
-        // or not? The numbers in the array can be used more than once.
+    /**
+     * From intArray given integer array values, find if intArray Total value is possible
+     * or not? The numbers in the array can be used more than once.
+     *
+     * @param intArray
+     * @param sum
+     * @return
+     */
+    public static boolean isTotalPossible(int[] intArray, int sum) {
+
         int i = 0;
         int min = 999;
-        for (int s : a) {
+        for (int s : intArray) {
             if (s < min) {
                 min = s;
             }
-            if (s == k) {
+            if (s == sum) {
                 return true;
             }
         }
-        while (i != a.length) {
-            if (k - a[i] == 0) {
+        while (i != intArray.length) {
+            if (sum - intArray[i] == 0) {
                 return true;
             }
-            if (k - a[i] >= min) {
-                System.out.println(a[i] + ", " + (k - a[i]));
-                return isTotalPossible(a, k - a[i]);
+            if (sum - intArray[i] >= min) {
+                System.out.println(intArray[i] + ", " + (sum - intArray[i]));
+                return isTotalPossible(intArray, sum - intArray[i]);
             } else {
                 i++;
             }
@@ -114,7 +139,11 @@ public class GeeksForGeeks {
         System.out.println("Dotproduct: " + sum);
     }
 
-    // You have an array with words. Print them by anagrams groups
+    /**
+     * You have an array with words. Print them by anagrams groups
+     *
+     * @param words
+     */
     public static void groupByAnagrams(String[] words) {
         HashMap<String, List<String>> anagrams = new HashMap<>();
         for (String i : words) {
@@ -136,23 +165,31 @@ public class GeeksForGeeks {
         }
     }
 
-    // distinct pairs that add up to k
-    public static void distinctPairsToK(int[] a, int k) {
+    /**
+     * distinct pairs that add up to kSum
+     *
+     * @param intArray
+     * @param kSum
+     */
+    public static void distinctPairsToK(int[] intArray, int kSum) {
         HashSet<Integer> set = new HashSet<>();
-        for (int i : a) {
+        for (int i : intArray) {
             set.add(i);
         }
         Iterator<Integer> iterator = set.iterator();
         while (iterator.hasNext()) {
             Integer i = iterator.next();
-            if (set.contains(k - i)) {
-                System.out.println(i + "," + (k - i));
+            if (set.contains(kSum - i)) {
+                System.out.println(i + "," + (kSum - i));
                 iterator.remove();
             }
         }
 
     }
 
+    /**
+     * @param a
+     */
     public static void largestContiguousSubArray(int[] a) {
         int prevMax = 0;
         int sum = 0;
@@ -165,7 +202,7 @@ public class GeeksForGeeks {
                 startIndex = i + 1;
             } else {
                 sum = sum + a[i]; //else sum it up
-                if (sum > prevMax) { //
+                if (sum > prevMax) {
                     start = startIndex;
                     prevMax = sum;
                     endIndex = i;
@@ -206,7 +243,7 @@ public class GeeksForGeeks {
         }
     }
 
-    public static int kthLargest(int k) {
+    public static int kthLargest(int[] array, int k) {
         int p = 0;
         int r = array.length - 1;
         int q = -1;
@@ -250,4 +287,28 @@ public class GeeksForGeeks {
         array[j] = temp;
     }
 
+    /**
+     * https://www.interviewcake.com/question/python/stock-price
+     *
+     * @param stockPrices
+     * @return
+     */
+    public static int maximumProfit(int[] stockPrices) {
+        int sum = 0;
+        int maxSum = -999;
+        int j = 1;
+        int len = stockPrices.length;
+        while (j < len) {
+            sum = sum + (stockPrices[j] - stockPrices[j - 1]);
+            if (sum < 0) {
+                sum = 0;
+            } else if (sum > maxSum) {
+                maxSum = sum;
+            }
+            j++;
+        }
+        if (maxSum < 0)
+            return 0;
+        return maxSum;
+    }
 }
