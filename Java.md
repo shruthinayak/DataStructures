@@ -17,10 +17,8 @@
 #####Data Structures
 |               |              |
 | ------------- |:-------------|
-|HashMap|```java
-public  V get(Object key)
+|HashMap|```java public  V get(Object key)
   {
      if (key ==null)
      int hash = hash(key.hashCode());
-   }
-```|
+   }```|
