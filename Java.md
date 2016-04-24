@@ -9,6 +9,8 @@
 
 [Comparable v/s Comparator](#comp)
 
+[Abstract class v/s Interface](#absIn)
+
 
 <a name="oop-concepts"/>
 #####OOP concepts
@@ -35,10 +37,12 @@
 |Memory automatically managed|Not managed automatically. |
 
 
-<a name="access-modifiers">
+<a name="access-modifiers"/>
 #####Access Modifiers
 ![Access Modifiers](http://s31.postimg.org/h9hrgg7mj/accessmodi.png)
-<a name="comp">
+<a name="comp"/>
 #####Comparable and Comparator
 ![CompAndComp](http://s31.postimg.org/4ijo41eor/comparableandcomparator.png)
 
+<a name="absIn"/>
+![Abstract Class v/s Interface](http://s31.postimg.org/5p6yojue3/abstract_Interface.png)
