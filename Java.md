@@ -14,7 +14,7 @@
 7. [Threads](#thread)
 
 <a name="oop-concepts"/>
-#####OOP concepts
+####OOP concepts
 |               |              |
 | ------------- |:-------------|
 | Encapsulation      | Encapsulation is a technique used for hiding the properties and behaviors of an object and allowing outside access only as appropriate. It prevents other objects from directly altering or accessing the properties or methods of the encapsulated object. |
@@ -23,7 +23,7 @@
 |Inheritance|extending the properties of a parent class.|
 
 <a name="data-structures"/>
-#####Data Structures
+####Data Structures
 |               |              |
 | ------------- |:-------------|
 |HashMap|There can only be one null key in HashMap. Buckets stored as linked list. What if  when two different keys have the same hashcode ? If there are more than one object mapped to the same hash value, we traverse through linked list, comparing keys in each entries using keys.equals() until it return true. Then the corresponding entry object Value is returned. In case we have to do a deep comparison of the fields, we override equals method.|
@@ -45,25 +45,25 @@
 
 
 <a name="access-modifiers"/>
-#####Access Modifiers
+####Access Modifiers
 ![Access Modifiers](http://s31.postimg.org/h9hrgg7mj/accessmodi.png)
 <a name="comp"/>
-#####Comparable and Comparator
+####Comparable and Comparator
 ![CompAndComp](http://s31.postimg.org/4ijo41eor/comparableandcomparator.png)
 
 <a name="absIn"/>
-#####Abstract Class v/s Interface
+####Abstract Class v/s Interface
 ![Abstract Class v/s Interface](http://s31.postimg.org/5p6yojue3/abstract_Interface.png)
 
 <a name="final"/>
-##### final, finally and finalize
+#### final, finally and finalize
 **final** - to make an object immutable, to prevent a method from being overridden, to prevent a class from being inherited.
 **finally** - always called after try catch
 **finalize** - called before freeing the object by garbage collector.
 
 
 <a name="thread"/>
-#####Threads
+####Threads
 ![Thread](http://s31.postimg.org/bvn5qt2u3/thread.png)
 
 References: 
