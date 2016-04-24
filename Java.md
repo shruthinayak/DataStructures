@@ -2,7 +2,7 @@
 
 #### Table of Contents  
 [OOP concepts](#oop-concepts)  
-[Emphasis](#emphasis)
+[Data Structures](#data-structures)
 
 <a name="oop-concepts"/>
 #####OOP concepts
@@ -17,4 +17,9 @@
 #####Data Structures
 |               |              |
 | ------------- |:-------------|
-|HashMap|```java public  V get(Object key){ if (key ==null) int hash = hash(key.hashCode()); }```|
+|HashMap|There can only be one null key in HashMap. Buckets stored as linked list. What if  when two different keys have the same hashcode ? If there are more than one object mapped to the same hash value, we traverse through linked list, comparing keys in each entries using keys.equals() until it return true. Then the corresponding entry object Value is returned. In case we have to do a deep comparison of the fields, we override equals method.|
+|HashSet|Uses hashmap internally to maintain the uniqueness. Override equals method to do a deep comparison of each of the attributes.|
+|Vector|Used when you don’t know what type of objects will be inserted. Initial capacity and increment factor when resized upward.|
+|String/StringBuffer/StringBuilder| ![Image of String](http://s31.postimg.org/cywme34wr/string.png)|
+|ArrayList v/s LinkedList|![List Implementations](http://s31.postimg.org/xjksltokb/list.png)|
+
