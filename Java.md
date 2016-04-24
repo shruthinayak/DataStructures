@@ -11,6 +11,8 @@
 
 [Abstract class v/s Interface](#absIn)
 
+[final, finally, finalize](#final)
+
 [Threads](#thread)
 
 <a name="oop-concepts"/>
@@ -48,6 +50,14 @@
 <a name="absIn"/>
 #####Abstract Class v/s Interface
 ![Abstract Class v/s Interface](http://s31.postimg.org/5p6yojue3/abstract_Interface.png)
+
+<a name="final"/>
+##### final, finally and finalize
+**final** - to make an object immutable, to prevent a method from being overridden, to prevent a class from being inherited.
+**finally** - always called after try catch
+**finalize** - called before freeing the object by garbage collector.
+
+
 <a name="thread"/>
 #####Threads
 ![Thread](http://s31.postimg.org/bvn5qt2u3/thread.png)
