@@ -11,6 +11,7 @@
 
 [Abstract class v/s Interface](#absIn)
 
+[Threads](#thread)
 
 <a name="oop-concepts"/>
 #####OOP concepts
@@ -47,3 +48,11 @@
 <a name="absIn"/>
 #####Abstract Class v/s Interface
 ![Abstract Class v/s Interface](http://s31.postimg.org/5p6yojue3/abstract_Interface.png)
+<a name="thread"/>
+#####Threads
+![Thread](http://s31.postimg.org/bvn5qt2u3/thread.png)
+
+Acknowledgements: 
+1 http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html
+2 http://stackoverflow.com/questions/215497/difference-among-public-default-protected-and-private
+3 http://www.java2blog.com/2013/02/difference-between-comparator-and.html
