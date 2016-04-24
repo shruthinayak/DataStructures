@@ -1,9 +1,12 @@
-#Java - Everything I need to know before Interview
+#Java - My cheatsheet
 
 #### Table of Contents  
 [OOP concepts](#oop-concepts)  
+
 [Data Structures](#data-structures)
+
 [Access Modifiers](#access-modifiers)
+
 [Comparable v/s Comparator](#comp)
 
 
