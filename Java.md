@@ -3,6 +3,9 @@
 #### Table of Contents  
 [OOP concepts](#oop-concepts)  
 [Data Structures](#data-structures)
+[Access Modifiers](#access-modifiers)
+[Comparable v/s Comparator](#comp)
+
 
 <a name="oop-concepts"/>
 #####OOP concepts
@@ -22,4 +25,17 @@
 |Vector|Used when you don’t know what type of objects will be inserted. Initial capacity and increment factor when resized upward.|
 |String/StringBuffer/StringBuilder| ![Image of String](http://s31.postimg.org/cywme34wr/string.png)|
 |ArrayList v/s LinkedList|![List Implementations](http://s31.postimg.org/xjksltokb/list.png)|
+|**Stack**|**Heap**|
+|stores temporary variables by each function. On function exit, values are popped out and memory is freed|stores objects created during runtime. When the function exits, reference is lost but the memory is not freed yet. Garbage collector does the work|
+|Fast access as stored sequentially.|Slow access because have to follow links.|
+|Has size limits. Might cause stackoverflow error when the function goes into infinite recursion.|No size limits, but sometimes might run out of Heapspace if no memory is free to be allocated.|
+|Memory automatically managed|Not managed automatically. |
+
+
+<a name="access-modifiers">
+#####Access Modifiers
+![Access Modifiers](http://s31.postimg.org/h9hrgg7mj/accessmodi.png)
+<a name="comp">
+#####Comparable and Comparator
+![CompAndComp](http://s31.postimg.org/4ijo41eor/comparableandcomparator.png)
 
