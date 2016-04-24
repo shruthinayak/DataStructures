@@ -1,19 +1,17 @@
 #Java - My cheatsheet
 
 #### Table of Contents  
-[OOP concepts](#oop-concepts)  
-
-[Data Structures](#data-structures)
-
-[Access Modifiers](#access-modifiers)
-
-[Comparable v/s Comparator](#comp)
-
-[Abstract class v/s Interface](#absIn)
-
-[final, finally, finalize](#final)
-
-[Threads](#thread)
+1. [OOP concepts](#oop-concepts)
+2. [Data Structures](#data-structures)
+  - [StringBuffer, StringBuilder and String](#string)
+  - [ArrayList v/s LinkedList](#listcomp)
+  - [Stack v/s Heap](#stackheap)
+  - [HashSet v/s TreeSet](#set)
+3. [Access Modifiers](#access-modifiers)
+4. [Comparable v/s Comparator](#comp)
+5. [Abstract class v/s Interface](#absIn)
+6. [final, finally, finalize](#final)
+7. [Threads](#thread)
 
 <a name="oop-concepts"/>
 #####OOP concepts
@@ -31,14 +29,14 @@
 |HashMap|There can only be one null key in HashMap. Buckets stored as linked list. What if  when two different keys have the same hashcode ? If there are more than one object mapped to the same hash value, we traverse through linked list, comparing keys in each entries using keys.equals() until it return true. Then the corresponding entry object Value is returned. In case we have to do a deep comparison of the fields, we override equals method.|
 |HashSet|Uses hashmap internally to maintain the uniqueness. Override equals method to do a deep comparison of each of the attributes.|
 |Vector|Used when you don’t know what type of objects will be inserted. Initial capacity and increment factor when resized upward.|
-|String/StringBuffer/StringBuilder| ![Image of String](http://s31.postimg.org/cywme34wr/string.png)|
-|ArrayList v/s LinkedList|![List Implementations](http://s31.postimg.org/xjksltokb/list.png)|
-|**Stack**|**Heap**|
+|<a name="string"/>String/StringBuffer/StringBuilder| ![Image of String](http://s31.postimg.org/cywme34wr/string.png)|
+|<a name="listcomp"/>ArrayList v/s LinkedList|![List Implementations](http://s31.postimg.org/xjksltokb/list.png)|
+|<a name="stackheap"/>**Stack**|**Heap**|
 |stores temporary variables by each function. On function exit, values are popped out and memory is freed|stores objects created during runtime. When the function exits, reference is lost but the memory is not freed yet. Garbage collector does the work|
 |Fast access as stored sequentially.|Slow access because have to follow links.|
 |Has size limits. Might cause stackoverflow error when the function goes into infinite recursion.|No size limits, but sometimes might run out of Heapspace if no memory is free to be allocated.|
 |Memory automatically managed|Not managed automatically. |
-|**Hashset**|**Treeset**|
+|<a name="set"/>**Hashset**|**Treeset**|
 |Not ordered|Ordered|
 |Null value allowed|Null value not allowed|
 |Performance - O(1)|Performance- log(n)|
