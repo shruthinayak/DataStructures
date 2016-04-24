@@ -38,6 +38,12 @@
 |Fast access as stored sequentially.|Slow access because have to follow links.|
 |Has size limits. Might cause stackoverflow error when the function goes into infinite recursion.|No size limits, but sometimes might run out of Heapspace if no memory is free to be allocated.|
 |Memory automatically managed|Not managed automatically. |
+|**Hashset**|**Treeset**|
+|Not ordered|Ordered|
+|Null value allowed|Null value not allowed|
+|Performance - O(1)|Performance- log(n)|
+|Implements Hashmap|Implements Treemap|
+
 
 
 <a name="access-modifiers"/>
