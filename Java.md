@@ -52,7 +52,7 @@
 #####Threads
 ![Thread](http://s31.postimg.org/bvn5qt2u3/thread.png)
 
-Acknowledgements: 
+References: 
 
 1. http://javahungry.blogspot.com/2013/08/hashing-how-hash-map-works-in-java-or.html
 2. http://stackoverflow.com/questions/215497/difference-among-public-default-protected-and-private
