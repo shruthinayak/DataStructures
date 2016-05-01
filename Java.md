@@ -77,3 +77,4 @@ Useful links:
 1. http://bigocheatsheet.com/
 2. http://www.buggybread.com/2015/01/java-interview-questions-and-answers.html
 3. http://www.buggybread.com/2013/09/java-online-practice-tests.html
+4. https://sites.google.com/site/steveyegge2/five-essential-phone-screen-questions
