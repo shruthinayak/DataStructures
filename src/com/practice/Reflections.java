@@ -1,6 +1,7 @@
 package com.practice;
 
 import com.practice.arrays.GeeksForGeeks;
+import com.practice.tree.Tree;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -10,8 +11,8 @@ import java.lang.reflect.Parameter;
  */
 public class Reflections {
     public static void main(String[] args) throws ClassNotFoundException {
-        Method[] declaredMethods = GeeksForGeeks.class.getDeclaredMethods();
-        System.out.println("###GeeksForGeeks");
+        Method[] declaredMethods = Tree.class.getDeclaredMethods();
+        System.out.println("###Tree");
         for (Method m : declaredMethods) {
             System.out.println("#####"+m.getName());
             Parameter[] parameters = m.getParameters();

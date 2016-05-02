@@ -1,7 +1,5 @@
 package com.practice.graphs;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Graph {
@@ -33,7 +31,7 @@ public class Graph {
 
     }
 
-    public static int BFS(Graph g, Queue<Vertex> verQueue) {
+    /*public static int BFS(Graph g, Queue<Vertex> verQueue) {
         int count = 0;
         while (!verQueue.isEmpty()) {
             Vertex u = verQueue.remove();
@@ -49,7 +47,7 @@ public class Graph {
         }
         System.out.println();
         return 0;
-    }
+    }*/
 
     void addEdge(int a, int b, int weight) {
         Vertex u = verts.get(a);

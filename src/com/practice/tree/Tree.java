@@ -1,7 +1,5 @@
 package com.practice.tree;
 
-import com.practice.graphs.Vertex;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,8 +25,20 @@ public class Tree {
         Arrays.sort(a);
         Node root = constructionNormal(a, 0, a.length);
         levelOrder(root);
+        int[] b = {20, 30, 40, 532, 535, 50, 80, 60};
+        Node root2 = constructionNormal(b, 0, b.length);
         System.out.println();
         System.out.println(findClosest(root, 533));
+
+        kthGreatestOrSmallest(false, root, 1);
+        System.out.println("After");
+        Tree.inorder(root);
+        kthGreatestOrSmallestIterative(false, 0, root);
+        System.out.println();
+        preorder(root);
+        System.out.println();
+        preorder(root2);
+        System.out.println(isIdentical(root2, root2));
 
     }
 
@@ -100,29 +110,64 @@ public class Tree {
         }
     }
 
-    public static void kthGreatestOrSmallest(boolean small, Node root) {
+    public static void kthGreatestOrSmallest(boolean small, Node root, int k) {
 
         if (small) {
             if (root.left != null) {
-                kthGreatestOrSmallest(true, root.left);
+                kthGreatestOrSmallest(true, root.left, k);
             }
             k = k - 1;
             if (k == 0) {
                 System.out.println(root.data);
             }
             if (root.right != null) {
-                kthGreatestOrSmallest(true, root.right);
+                kthGreatestOrSmallest(true, root.right, k);
             }
         } else {
             if (root.right != null) {
-                kthGreatestOrSmallest(false, root.right);
+                kthGreatestOrSmallest(false, root.right, k);
             }
             k = k - 1;
             if (k == 0) {
                 System.out.println(root.data);
             }
             if (root.left != null) {
-                kthGreatestOrSmallest(true, root.left);
+                kthGreatestOrSmallest(true, root.left, k);
+            }
+
+        }
+
+    }
+
+    public static void kthGreatestOrSmallestIterative(boolean small, int k, Node root) {
+        Node temp = root;
+        if (small) {
+            while (k != 0) {
+                if (temp.left != null) {
+                    temp = temp.left;
+                }
+                k = k - 1;
+                if (k == 0) {
+                    System.out.println(temp.data);
+                    break;
+                }
+                if (temp.right != null) {
+                    temp = temp.right;
+                }
+            }
+        } else {
+            while (k != 0) {
+                if (temp.right != null) {
+                    temp = temp.right;
+                }
+                k = k - 1;
+                if (k == 0) {
+                    System.out.println(temp.data);
+                    break;
+                }
+                if (temp.left != null) {
+                    temp = temp.left;
+                }
             }
 
         }
@@ -248,5 +293,32 @@ public class Tree {
             }
         }
         return root;
+    }
+
+    static boolean isSubTree(Node r1, Node r2) {
+        if (r1 == null && r2 == null)
+            return true;
+
+        if (r1.data == r2.data) {
+            if (isIdentical(r1, r2)) {
+                return true;
+            }
+        }
+        return isSubTree(r1.left, r2) || isSubTree(r1.right, r2);
+
+    }
+
+    static boolean isIdentical(Node r1, Node r2) {
+        if (r1 == null && r2 == null)
+            return true;
+
+        if (r1 == null || r2 == null)
+            return false;
+
+        if (r1.data != r2.data) {
+            return false;
+        }
+
+        return isIdentical(r1.left, r2.left) && isIdentical(r1.right, r2.right);
     }
 }

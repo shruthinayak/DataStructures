@@ -7,6 +7,151 @@ import java.util.*;
 public class GeeksForGeeks {
 
     static int[] array = CommonData.array;
+    static int[] d;
+
+    public static void main(String[] args) {
+        /*int[][] a = {{1, 0, 0, 0, 0}, {0, 1, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 1, 0}, {0, 0, 0, 0, 1}};
+        System.out.println(friendCircle(a));*/
+        getSpecialPageNumbers(new int[]{4, 2, 6, 1, 10}, 5, 3);
+    }
+
+    public static void getSpecialPageNumbers(int[] problems, int n, int k) {
+        int pageNumber = 1;
+        int chap = 1;
+        int special = 0;
+        while (chap <= n) {
+            int end = 1;
+            int start = 1;
+
+            while (end < problems[chap - 1]) {
+                start = end;
+                if (end + k - 1 <= problems[chap - 1]) {
+                    end = end + k - 1;
+                } else {
+                    end = problems[chap - 1];
+                }
+                if (pageNumber >= start && pageNumber <= end) {
+                    special++;
+                }
+                pageNumber++;
+            }
+            chap++;
+        }
+        System.out.println(special);
+    }
+
+    public static int friendCircle(int[][] matrix) {
+        boolean[] visited = new boolean[matrix.length];
+        int circles = 0;
+
+        for (int i = 0; i < matrix.length; i++) {
+            if (!visited[i]) {
+                circles++;
+                int j = i + 1;
+                while (j < matrix[0].length && matrix[i][j] == 1) {
+                    visited[j] = true;
+                    i = j;
+                    j++;
+                }
+            }
+        }
+
+        return circles;
+    }
+
+    public static int nCents(int n) {
+        if (d[n] != 0)
+            return d[n];
+
+        int tf = 0, ten = 0, five = 0, one = 0;
+        tf = n - 25 >= 0 ? nCents(n - 25) : 0;
+        ten = n - 10 >= 0 ? nCents(n - 10) : 0;
+        five = n - 5 >= 0 ? nCents(n - 5) : 0;
+        one = n - 1 >= 0 ? nCents(n - 1) : 0;
+        System.out.println(one + ", " + five + ", " + ten + ", " + tf);
+        d[n] = one + five + ten + tf;
+        return d[n];
+    }
+
+    /**
+     * Implement an algorithm to print all valid (e.g., properly opened and closed)
+     * combinations of n-pairs of parentheses.
+     *
+     * @param n
+     * @return
+     */
+    public static List<String> parenthesize(int n) {
+        List<String> temp = new ArrayList<>();
+        if (n == 1) {
+            temp.add("()");
+            return temp;
+        }
+        List<String> parenthesize = parenthesize(n - 1);
+
+        for (String i : parenthesize) {
+            temp.add("(" + i + ")");
+            if (!("()" + i).equals(i + "()"))
+                temp.add("()" + i);
+            temp.add(i + "()");
+        }
+        return temp;
+    }
+
+    /**
+     * Write a method to compute all permutations of a string
+     *
+     * @param index
+     * @param s
+     * @return
+     */
+    public static List<String> permutationsOfString(int index, String s) {
+        List<String> temp = new ArrayList<>();
+        if (s.length() - index == 1) {
+            temp.add(s.substring(index));
+            return temp;
+        }
+        String current = s.charAt(index) + "";
+        List<String> permutation = permutationsOfString(index + 1, s);
+        List<String> master = new ArrayList<>();
+        master.add(current);
+        for (String p : permutation) {
+            master.add(p);
+            master.add(p + current);
+            master.add(current + p);
+        }
+        return master;
+    }
+
+    /**
+     * Write a method that returns all subsets of a set.
+     *
+     * @param index
+     * @param set
+     * @return Returns all the subsets of a set.
+     */
+    public static List<List> subset(int index, List<Integer> set) {
+        List<Integer> temp = new ArrayList<>();
+        if (set.size() - index == 1) { //until one element is left in the subset
+            List<List> letssee = new ArrayList<>();
+            temp.add(set.get(index));
+            letssee.add(temp);
+            return letssee;
+        }
+        int i = set.get(index); //get the current number. Find the smaller subsets and then add i to all the subsets
+        List<List> subsets = subset(index + 1, set);
+        List<List> allSub = new ArrayList<>();
+        temp.add(i);
+        allSub.add(temp);
+        for (List l : subsets) {
+            allSub.add(l);
+            temp = new ArrayList<>();
+            temp.addAll(l);
+            temp.add(i);
+            allSub.add(temp);
+        }
+
+        return allSub;
+    }
 
     /**
      * Imagine a robot sitting on the upper left hand corner of an NxN grid. The robot can
