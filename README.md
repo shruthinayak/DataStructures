@@ -53,8 +53,11 @@
 #### Access Modifiers
 
 ![Access Modifiers](http://s31.postimg.org/h9hrgg7mj/accessmodi.png)
+
 <a name="comp"/>
-####Comparable and Comparator
+
+#### Comparable and Comparator
+
 ![CompAndComp](http://img.ctrlv.in/img/16/04/24/571c5a979542c.png)
 
 <a name="absIn"/>
